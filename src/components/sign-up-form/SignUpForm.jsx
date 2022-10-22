@@ -4,6 +4,7 @@ import {
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
 import FormInput from '../form-input/FormInput';
+import './signupForm.scss';
 
 const initialState = {
   name: '',
@@ -53,43 +54,52 @@ const SignUpForm = () => {
     }
   };
   return (
-    <div>
-      <h1>Sign Up with your email and password</h1>
+    <div className='signUp-container'>
+      <h2>Do not have an account?</h2>
+      <span>Sign Up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label='Name'
-          required
-          type='text'
-          name='name'
-          value={name}
-          onChange={handleChange}
+          inputOptions={{
+            required: true,
+            type: 'text',
+            name: 'name',
+            value: name,
+            onChange: handleChange,
+          }}
         />
 
         <FormInput
           label='Email'
-          required
-          type='email'
-          name='email'
-          value={email}
-          onChange={handleChange}
+          inputOptions={{
+            required: true,
+            type: 'email',
+            name: 'email',
+            value: email,
+            onChange: handleChange,
+          }}
         />
 
         <FormInput
           label='Password'
-          required
-          type='password'
-          name='password'
-          value={password}
-          onChange={handleChange}
+          inputOptions={{
+            required: true,
+            type: 'password',
+            name: 'password',
+            value: password,
+            onChange: handleChange,
+          }}
         />
 
         <FormInput
           label='Confirm Password'
-          required
-          type='password'
-          name='confirmPassword'
-          value={confirmPassword}
-          onChange={handleChange}
+          inputOptions={{
+            required: true,
+            type: 'password',
+            name: 'confirmPassword',
+            value: confirmPassword,
+            onChange: handleChange,
+          }}
         />
 
         <button type='submit'>Sign Up</button>
