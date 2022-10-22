@@ -3,6 +3,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
+import Button from '../button/Button';
 import FormInput from '../form-input/FormInput';
 import './signupForm.scss';
 
@@ -102,7 +103,10 @@ const SignUpForm = () => {
           }}
         />
 
-        <button type='submit'>Sign Up</button>
+        {/* <button type='submit'>Sign Up</button> */}
+        <Button buttonType='inverted' type='submit'>
+          Sign Up
+        </Button>
       </form>
     </div>
   );
