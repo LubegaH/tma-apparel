@@ -23,13 +23,13 @@
   }
 
   &.google-signIn {
-    background-color: rgb(38, 147, 169);
+    background-color: #4285f4;
     color: white;
 
     &:hover {
       background-color: white;
-      color: rgb(38, 147, 169);
-      border: none;
+      color: #4285f4;
+      border: 1px solid #4285f4;
     }
   }
 
