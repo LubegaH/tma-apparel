@@ -5,6 +5,8 @@ import { ReactComponent as TMA } from '../../assets/crown.svg';
 import './navigation.styles.scss';
 
 import { UserContext } from '../../contexts/UserContext';
+import { CartContext } from '../../contexts/CartContext';
+
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 import CartIcon from '../../components/cart-icon/CartIcon';
@@ -12,6 +14,7 @@ import CartDropDown from '../../components/cart-drop-down/CartDropDown';
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
 
   return (
     <Fragment>
@@ -35,7 +38,7 @@ const Navigation = () => {
           )}
           <CartIcon />
         </div>
-        <CartDropDown />
+        {isCartOpen && <CartDropDown />}
       </div>
       <Outlet />
     </Fragment>
