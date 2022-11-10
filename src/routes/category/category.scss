@@ -1,6 +1,11 @@
-.products-container {
+.category-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
   row-gap: 50px;
+}
+
+.cat-title {
+  font-style: 38px;
+  margin-bottom: 25px;
 }
