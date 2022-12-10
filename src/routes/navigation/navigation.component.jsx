@@ -2,7 +2,12 @@ import { Outlet, Link } from 'react-router-dom';
 import { Fragment, useContext } from 'react';
 
 import { ReactComponent as TMA } from '../../assets/crown.svg';
-import './navigation.styles.scss';
+import {
+  NavigationContainer,
+  Logo,
+  NavLinks,
+  NavLink,
+} from './navigation.styles';
 
 import { UserContext } from '../../contexts/UserContext';
 import { CartContext } from '../../contexts/CartContext';
@@ -18,37 +23,27 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <div className='navigation'>
-        <Link className='logo-container' to='/'>
+      <NavigationContainer>
+        <Logo to='/'>
           <TMA className='logo' />
-        </Link>
+        </Logo>
 
-        <div className='nav-links-container'>
-          <Link className='nav-link' to='/categories'>
-            CATEGORIES
-          </Link>
-          <Link className='nav-link' to='/'>
-            KIDS
-          </Link>
-          <Link className='nav-link' to='/'>
-            MEN
-          </Link>
-          <Link className='nav-link' to='/'>
-            WOMEN
-          </Link>
+        <NavLinks>
+          <NavLink to='/categories'>CATEGORIES</NavLink>
+          <NavLink to='/'>KIDS</NavLink>
+          <NavLink to='/'>MEN</NavLink>
+          <NavLink to='/'>WOMEN</NavLink>
           {currentUser ? (
-            <span className='nav-link' onClick={signOutUser}>
+            <NavLink as='span' onClick={signOutUser}>
               SIGN OUT
-            </span>
+            </NavLink>
           ) : (
-            <Link className='nav-link' to='/auth'>
-              SIGNIN
-            </Link>
+            <NavLink to='/auth'>SIGNIN</NavLink>
           )}
           <CartIcon />
-        </div>
+        </NavLinks>
         {isCartOpen && <CartDropDown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   );
